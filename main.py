@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
 # loading all the path textfiles on our project directory
-source_files = [doc for doc in os.listdir() if doc.endswith('.txt')]
+source_files = [doc for doc in os.listdir() if doc.endswith('.c')]
 print(source_files)
 source_streams =[open(File).read() for File in source_files]
 
@@ -23,7 +23,7 @@ s_vectors = list(zip(source_files, vectors))
 # The set that will contain the results of the similarity among the source files
 score_results = set()
 plagiarism_results = set()
-threshold = 0.9 # Above this threshold we'll consider the plagiarism
+threshold = 0.8 # Above this threshold we'll consider the plagiarism
 
 # The actual function that will compute the similarity
 def check_plagiarism():
